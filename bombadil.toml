@@ -1,0 +1,19 @@
+# {dotfiles}/bombadil.toml
+
+dotfiles_dir = ".dotfiles"
+
+[settings]
+posthooks = ["bash -c 'git config --global include.path $HOME/.config/git/.gitconfig'"]
+
+[settings.dots]
+alacritty = { source = "alacritty", target = ".config/alacritty" }
+nivm = { source = "nvim", target = ".config/nvim" }
+git = { source = "git", target = ".config/git" }
+bash = { source = "bash/.bashrc", target = ".bashrc" }
+starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
+
+[profiles.sway]
+posthooks = [ "sway reload" ]
+
+[profiles.sway.dots]
+sway = { source = "sway", target = ".config/sway" }
