@@ -30,6 +30,12 @@ local handlers = {
             capabilities = capabilities
         }
     end,
+    ["clangd"] = function()
+        require("lspconfig").clangd.setup {
+            cmd = {"clangd"}
+        }
+    end,
+
     ["pylsp"] = function()
         require("lspconfig").pylsp.setup {
             settings = {
@@ -49,6 +55,6 @@ local handlers = {
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-    ensure_installed = { "lua_ls", "clangd", "pylsp", "ocamllsp", "cmake" },
+    ensure_installed = { "lua_ls", "clangd", "pylsp", "cmake" },
     handlers = handlers
 })

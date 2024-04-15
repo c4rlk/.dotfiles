@@ -29,5 +29,7 @@ map("i", "<c-w>", "<c-g>u<c-w>")
 -- format the current buffer
 map('n', "<leader>fm", ":lua vim.lsp.buf.format()<CR>", {})
 
+map("n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", {})
+
 map('n', "<leader>d", "\"_d", {})
 map('x', "<leader>d", "\"_d", {})
