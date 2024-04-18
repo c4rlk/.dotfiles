@@ -23,10 +23,11 @@ set $term alacritty
 set $menu wofi --show run
 
 set $browser swaymsg exec firefox
+set $mail exec thunderbird
+set $element exec element-desktop
 
 set $scnshot grim -g "$(slurp -d)" - | wl-copy
 
-bindsym $mod+p exec $scnshot
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -55,6 +56,8 @@ output DP-1 {
     position 0 0
 
 }
+
+exec mako
 
 
 ### Idle configuration
@@ -93,6 +96,11 @@ output DP-1 {
         middle_emulation enabled
     }
 
+    input "type:keyboard" {
+        xkb_layout us
+            xkb_variant de_se_fi
+        }
+
 ### Key bindings
 #
 # Basics:
@@ -103,11 +111,20 @@ output DP-1 {
     # Open browser
     bindsym $mod+Shift+Return exec $browser
 
+    # Open mail 
+    bindsym $mod+Shift+M exec $mail
+
+    # Open element
+    bindsym $mod+M exec $element
+
     # Kill focused window
     bindsym $mod+Shift+q kill
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    # Screenshot
+    bindsym $mod+p exec $scnshot
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -273,3 +290,4 @@ bar {
 #}
 
 include /etc/sway/config.d/*
+
