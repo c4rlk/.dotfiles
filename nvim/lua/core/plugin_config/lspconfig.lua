@@ -32,7 +32,7 @@ local handlers = {
     end,
     ["clangd"] = function()
         require("lspconfig").clangd.setup {
-            cmd = {"clangd"}
+            cmd = { "clangd" }
         }
     end,
 

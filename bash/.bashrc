@@ -26,4 +26,11 @@ fi
 
 eval "$(starship init bash)"
 
-# Testing
+man ()
+{
+    export LESS_TERMCAP_md=$(tput bold; tput setaf 6) # Cyan
+    export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 5) # Magenta
+    export GROFF_NO_SGR=1
+
+    command man "$@"
+}
