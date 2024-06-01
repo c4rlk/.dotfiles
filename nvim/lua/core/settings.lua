@@ -23,6 +23,10 @@ vim.opt.softtabstop=4
 vim.opt.expandtab=true
 vim.opt.shiftwidth=4
 
+
+-- vim.cmd('highlight ExtraWhitespace ctermbg=red guibg=red')
+-- vim.cmd('match ExtraWhitespace /\\s\\+$/')
+
 --automatically load and safe view file
 vim.api.nvim_create_autocmd("BufWinLeave", {pattern = "*.*", command = "mkview"})
 vim.api.nvim_create_autocmd("BufWinEnter", {pattern = "*.*", command = "silent! loadview"})
@@ -34,3 +38,5 @@ vim.cmd [[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank()
   augroup end
 ]]
+
+vim.cmd("colorscheme tokyonight")
