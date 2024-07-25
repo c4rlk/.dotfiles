@@ -31,8 +31,11 @@ map('n', "<leader>fm", ":lua vim.lsp.buf.format()<CR>", {})
 
 map("n", "<leader>e", ":lua vim.diagnostic.open_float()<CR>", {silent=true})
 
+-- delete to void
 map('n', "<leader>d", "\"_d", {})
 map('x', "<leader>d", "\"_d", {})
+map('n', "<leader>C", "\"_C", {})
+map('x', "<leader>C", "\"_C", {})
 
 -- luasnip rempas
 map("i", "<A-j>", "<cmd>lua require'luasnip'.jump(1)<CR>", {silent=true})
