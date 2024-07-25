@@ -34,3 +34,7 @@ man ()
 
     command man "$@"
 }
+
+
+GPG_TTY=$(tty)
+export GPG_TTY
