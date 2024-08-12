@@ -11,6 +11,7 @@ nivm = { source = "nvim", target = ".config/nvim" }
 git = { source = "git", target = ".config/git" }
 bash = { source = "bash/.bashrc", target = ".bashrc" }
 starship = { source = "starship/starship.toml", target = ".config/starship.toml" }
+gnupg = { spurce = "gnupg", target = "~/gnupg" }
 
 [profiles.sway]
 posthooks = [ "sway reload" ]
