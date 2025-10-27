@@ -5,15 +5,17 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
+PS1='[\u@\h \W]\$ '
+
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias vim="nvim"
 alias ssh='TERM=xterm-256color ssh'
 
-PS1='[\u@\h \W]\$ '
-
 # Created by `pipx` on 2024-03-22 19:36:28
 export PATH="$PATH:/home/carl/.local/bin"
+
+export PATH="$PATH:~/.config/emacs/bin"
 
 if [ "$(tty)" = "/dev/tty1" ] ; then
     export QT_QPA_PLATFORM=wayland
@@ -38,3 +40,7 @@ man ()
 
 export GPG_TTY=$(tty)
 export GPG_TTY
+
+# [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+# eval "$(atuin init bash)"
+# source ~/.local/share/blesh/ble.sh

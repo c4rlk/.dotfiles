@@ -1,6 +1,6 @@
 local on_attach = function(_, _)
     vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, {})
-    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+    vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
 
     vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
     vim.keymap.set("n", "gi", vim.lsp.buf.implementation, {})
@@ -32,7 +32,9 @@ local handlers = {
     end,
     ["clangd"] = function()
         require("lspconfig").clangd.setup {
-            cmd = { "clangd" }
+            cmd = { "clangd" },
+            on_attach = on_attach,
+            capabilities = capabilities
         }
     end,
 

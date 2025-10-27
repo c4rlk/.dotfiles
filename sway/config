@@ -31,7 +31,11 @@ set $scnshot grim -g "$(slurp -d)" - | wl-copy
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+exec_always swaybg -o eDP-1 -i /home/carl/Documents/stuff/wp/RideAtDawn.jpg -m fill
+exec_always swaybg -o DP-1  -i /home/carl/Documents/stuff/wp/RideAtDawn.jpg -m fit --color '#000000'
+exec_always swaybg -o DP-6  -i /home/carl/Documents/stuff/wp/RideAtDawn.jpg -m fit --color '#000000'
+exec_always swaybg -o DP-5  -i /home/carl/Documents/stuff/wp/RideAtDawn.jpg -m fit --color '#000000'
+exec_always swaybg -o DP-3  -i /home/carl/Documents/stuff/wp/RideAtDawn.jpg -m fit --color '#000000'
 #
 # Example configuration:
 #
@@ -39,30 +43,93 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
+
+######## Setup office #########
+
+#output DP-6 {
+#    resolution 2880x1800@90Hz 
+#    # Curved monitor
+#    position 1080 200
+#    # other monitor
+#    #position 0 1440
+#    # position 0 1080
+#}
+#
+#output DP-5 {
+#    position 0 0
+#    transform 270
+#}
+#
+# output eDP-1 {
+#     scale 1.3
+#     resolution 2880x1800@90Hz 
+#     position 4520 1040
+# }
+
+
+####### Setup one monitor home #######
+
+# output eDP-1 {
+#     scale 1.3
+#     resolution 2880x1800@90Hz 
+#     position 0 1080
+# }
+# 
+# output DP-5 {
+#     scale 1
+#     resolution 3840x1080@119.974Hz
+#     position 0 0
+# }
+# 
+# output DP-6 {
+#     scale 1
+#     resolution 3840x1080@119.974Hz
+#     position 0 0
+# }
+ 
+####### Setup Rechnerhalle ######
+
 output eDP-1 {
-    scale 1.7
+    scale 1.3
     resolution 2880x1800@90Hz 
-    # Curved monitor
-    #position 900 1440
-    # other monitor
-    position 0 1440
-}
-
-output HDMI-A-1 {
-    resolution 3440x1440
-    position 0 0
-}
-
-
-output DP-1 {
-    position 0 0
+    position 0 2160
 }
 
 output DP-3 {
+    resolution 3840x2160
+    scale 1.2
     position 0 0
 }
 
-exec mako
+output HDMI-A-1 {
+    resolution 3840x2160
+    scale 1.2
+    # position 0 0
+}
+
+
+# output eDP-1 {
+#     scale 1.3
+#     resolution 2880x1800@90Hz 
+#     position 0 1440
+# }
+# 
+# output HDMI-A-1 {
+#     resolution 2560x1440@59.951Hz
+#     position 0 0
+# }
+# 
+# output DP-6 {
+#     resolution 3440x1440@60Hz
+#     position 1920 0
+# }
+# 
+# output DP-7 {
+#     resolution 1920x1080@60Hz
+#     position 0 360
+# }
+
+exec mako --config=~/.config/mako/config
 
 
 ### Idle configuration
